@@ -7,11 +7,11 @@
 ```
 /
 ├── index.html                 # 首页（Hero + 栏目速览 + 最新资讯 + 产地特写）
-├── about.html                 # 关于本站 / 投稿合作 / 免责声明
+├── about.html                 # 关于本站 / 域名出售出租（柿饼.cn、柿饼.中国、富平柿饼.cn）/ 投稿合作 / 免责声明
 ├── category-{slug}.html       # 6 个栏目页：xingye/chandi/shichang/jiankang/meishi/zhishi
-├── news/                      # 文章页（拼音 slug 命名）
+├── news/                      # 文章页（拼音 slug 命名，共 17 篇）
 │   ├── shibing-chanye-qushi.html
-│   └── ...（共 12 篇首发文章）
+│   └── ...（新增文章在 scripts/build_site.py 的 ARTICLES 中登记后重跑生成）
 ├── css/style.css              # 全站样式（柿红·柿叶绿·霜纸色）
 ├── images/                    # 图片素材（AI 生成原创，可商用）
 ├── favicon.svg
@@ -24,24 +24,25 @@
 
 ## 新增文章流程（沿用 SEO 发文工作流）
 
-1. 按 `seo-article-writer` 技能流程写正文，输出为 `news/<拼音slug>.html`，页面结构参考现有文章（含 JSON-LD 结构化数据、canonical、meta 描述）。
-2. 在 `index.html` 的「最新资讯」区按时间倒序登记卡片，并在对应栏目页 `category-*.html` 登记。
-3. 在 `sitemap.xml` 追加新 URL（`<lastmod>` 填文章日期）。
-4. 提交推送，GitHub Actions 自动构建部署到 Pages。
+1. 按 `seo-article-writer` 技能流程写正文。
+2. 在 `scripts/build_site.py` 的 `ARTICLES` 列表中追加文章数据（slug / cat / date / title / cover / summary / body），图片放到 `images/`。
+3. 运行 `python scripts/build_site.py`，脚本会自动重建首页、栏目页、文章页并更新 `sitemap.xml`。
+4. 提交推送，GitHub Pages 分支部署会自动发布。
 
 ## 部署
 
 仓库：`https://github.com/mfujun2025/shibing`
-托管：GitHub Pages（`.github/workflows/deploy.yml` 自动构建，推送到 `main` 即发布）。
+访问地址：
+- 自定义域名：`https://柿饼.cn`（即 `https://xn--9vvp51i.cn`，已配置 Cloudflare 代理）
+- GitHub Pages：`https://mfujun2025.github.io/shibing/`
 
-### 首次配置自定义域名（柿饼.cn）
+当前部署方式：GitHub Pages 分支部署（Settings → Pages → Deploy from branch → main 根目录），推送到 `main` 即自动发布；仓库内 `.github/workflows/deploy.yml` 为可选的 Actions 部署方案（推送该文件需要 PAT 具备 `workflow` 权限）。
 
-1. 仓库 Settings → Pages → Custom domain 填入：`xn--9vvp51i.cn`（GitHub Pages 的 CNAME 需用 ASCII punycode），等待签发 HTTPS。
-2. 域名 DNS（在域名注册商处设置）：
-   - 若域名托管支持 A 记录：解析到 GitHub Pages 当前 IP（`185.199.108.153` / `185.199.109.153` / `185.199.110.153` / `185.199.111.153`）。
-   - 或 CNAME 指向 `mfujun2025.github.io`。
-   - 也可改用 Cloudflare Pages：把仓库导入 Cloudflare，构建输出目录为根目录，再绑定 `柿饼.cn`。
-3. 验证：浏览器访问 https://柿饼.cn 或 https://xn--9vvp51i.cn 返回 200 后即完成。
+### 自定义域名（柿饼.cn，已完成）
+
+- 仓库根目录 `CNAME` 内容为 `xn--9vvp51i.cn`（GitHub Pages 需用 ASCII punycode）。
+- DNS：A 记录指向 `185.199.108.153` / `185.199.109.153` / `185.199.110.153` / `185.199.111.153`，或 CNAME 指向 `mfujun2025.github.io`；当前由 Cloudflare 代理（橙色云朵）。
+- HTTPS 已由 Cloudflare 提供。
 
 ## 本地预览
 
