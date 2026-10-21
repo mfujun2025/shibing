@@ -1,5 +1,6 @@
 # 自检截图与临时文件（不属于交付产物）
 _shots/
 scripts/git_check.txt
+scripts/git_push.txt
 scripts/download_images.py
 __pycache__/
