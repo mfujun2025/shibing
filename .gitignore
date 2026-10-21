@@ -2,5 +2,10 @@
 _shots/
 scripts/git_check.txt
 scripts/git_push.txt
+scripts/build_out.txt
+scripts/shot_*.txt
 scripts/download_images.py
+scripts/download_images2.py
+scripts/gh_api.py
+scripts/gh_api_out.txt
 __pycache__/
