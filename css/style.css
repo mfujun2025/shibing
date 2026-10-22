@@ -216,6 +216,14 @@ a:hover { color: var(--leaf-dark); }
   font-size: 14px; line-height: 1.8;
 }
 .article-body .note strong { color: var(--leaf-dark); }
+.article-body .read-more {
+  background: var(--frost); border: 1px solid #e6d9bd; border-left: 4px solid var(--caramel);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 12px 16px; margin: 18px 0;
+  font-size: 14px; line-height: 1.8;
+}
+.article-body .read-more strong { display: block; color: var(--rust); margin-bottom: 6px; }
+.article-body .read-more ul { margin: 0; padding-left: 20px; }
+.article-body .read-more a { color: var(--persimmon); font-weight: 500; }
 .article-body figure { margin: 18px 0; }
 .article-body figcaption { font-size: 12px; color: var(--ink-soft); margin-top: 6px; text-align: center; }
 .article-tags { margin: 22px 0 6px; display: flex; flex-wrap: wrap; gap: 8px; }
