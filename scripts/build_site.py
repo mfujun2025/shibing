@@ -1045,6 +1045,11 @@ def render_about():
         "<p>合作方式：可一次性购买转让，也可按年出租。价格与合作细节请联系：<a href=\"mailto:" + CONTACT_EMAIL + "\">" + CONTACT_EMAIL + "</a>。</p>\n"
         '<h2 id="contact">投稿与合作</h2>\n'
         "<p>欢迎柿饼产区商家、合作社、行业从业者与我们交流分享、投稿合作，联系邮箱：<a href=\"mailto:" + CONTACT_EMAIL + "\">" + CONTACT_EMAIL + "</a>。</p>\n"
+        '<h2 id="friends">友情链接</h2>\n'
+        "<p>以下为本站合作站点，欢迎行业相关网站交换友链：</p>\n"
+        "<ul>\n"
+        '<li><a href="https://400.xn--fiqs8s/" target="_blank" rel="noopener">400.中国</a>（400.xn--fiqs8s）——400电话行业中文站点</li>\n'
+        "</ul>\n"
         '<h2 id="statement">免责声明</h2>\n'
         "<p>本站内容均为一般性资讯与知识科普，仅供读者参考，不构成医疗、投资或商业决策建议；文中价格与行情信息会随市场变化，请以实际为准。本站图片为AI生成原创素材。</p>\n"
         "</div></div></section>\n"
